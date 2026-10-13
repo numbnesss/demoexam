@@ -1,0 +1,301 @@
+/* палитра и размеры  */
+:root {
+    --primary: #1f4e8c;
+    --primary-dark: #163a69;
+    --text: #1c2430;
+    --muted: #5f6b7a;
+    --bg: #f3f5f9;
+    --card: #ffffff;
+    --border: #d7dde6;
+    --error: #c62828;
+    --new: #1f4e8c;
+    --scheduled: #c77700;
+    --done: #2e7d32;
+    --radius: 8px;
+}
+
+/* .logo {
+    height: 40px;
+    display: block;
+}
+
+.hero {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+} */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+}
+
+/* иерархия шрифтов */
+h1 {
+    font-size: 28px;
+    margin: 0 0 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 8px;
+}
+
+p {
+    margin: 0 0 6px;
+}
+
+a {
+    color: var(--primary);
+}
+
+/* шапка */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 24px;
+    background: var(--primary);
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+header button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 6px 14px;
+}
+
+.newApplicationButton {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* страница */
+.page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+/* формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 420px;
+    padding: 28px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+input,
+select,
+textarea {
+    font: inherit;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fff;
+}
+
+.auth {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.auth form {
+    max-width: none;
+}
+
+.errField {
+    color: var(--error);
+    font-size: 14px;
+}
+
+.errField:empty {
+    display: none;
+}
+
+button {
+    font: inherit;
+    font-weight: 600;
+    padding: 11px 18px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+}
+
+form button {
+    margin-top: 16px;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+/* ссылка еще не зарегистрированы? регистрация под формой */
+.auth>a {
+    display: block;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.auth>a:hover {
+    text-decoration: underline;
+}
+
+/* карточки заявок */
+.applicationCard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--new);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+}
+
+.applicationCard.scheduled {
+    border-left-color: var(--scheduled);
+}
+
+.applicationCard.done {
+    border-left-color: var(--done);
+}
+
+.applicationCard .statusCard {
+    font-weight: 600;
+    color: var(--new);
+}
+
+.applicationCard.scheduled .statusCard {
+    color: var(--scheduled);
+}
+
+.applicationCard.done .statusCard {
+    color: var(--done);
+}
+
+.startDateCard,
+.paymentCard,
+.fullNameCard {
+    color: var(--muted);
+}
+
+.applicationCard select {
+    max-width: 300px;
+    margin: 8px 0;
+}
+
+.reviewApplicationsCard {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+    color: var(--muted);
+}
+
+/* форма отзыва внутри карточки без своей рамки */
+.reviewApplicationsCard form {
+    max-width: none;
+    padding: 0;
+    border: none;
+    font-style: normal;
+}
+
+/* фильтр в админке */
+h1+select {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+/* 390×844 */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    header {
+        padding: 12px 16px;
+    }
+
+    .page {
+        padding: 20px 16px;
+    }
+
+    form {
+        padding: 20px 16px;
+        max-width: none;
+    }
+
+    .applicationCard {
+        padding: 14px 16px;
+    }
+
+    .applicationCard select,
+    h1+select {
+        max-width: none;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    header button {
+        width: auto;
+    }
+}
